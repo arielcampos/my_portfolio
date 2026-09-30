@@ -73,12 +73,12 @@
     .project-art { height: 170px; position: relative; overflow: hidden; padding: 25px; }
     .project-art::after { content: ""; position: absolute; width: 170px; height: 170px; border: 1px solid rgba(255,255,255,.35); border-radius: 34px; transform: rotate(22deg); right: -18px; bottom: -88px; }
     .art-one { background: linear-gradient(135deg,#daebff,#bcd6f5); } .art-two { background: linear-gradient(135deg,#fff0d3,#f7d98e); } .art-three { background: linear-gradient(135deg,#dff3e6,#afe0c4); }
-    .project-art span { display: inline-block; font-size: .8rem; font-weight: 800; color: #263975; letter-spacing: .07em; text-transform: uppercase; background: rgba(255,255,255,.72); padding: 8px 10px; border-radius: 8px; }
+    .project-art span { display: inline-block; font-size: .8rem; font-weight: 800; color: #263975; letter-spacing: .07em; text-transform: uppercase; white-space: nowrap; background: rgba(255,255,255,.72); padding: 8px 10px; border-radius: 8px; }
     .project-art .project-date { position: absolute; top: 25px; right: 25px; letter-spacing: 0; }
     .samplepop-art, .integrity-art { display: grid; place-items: center; background: #fff; }
     .samplepop-art::after, .integrity-art::after { display: none; }
     .samplepop-art .project-logo, .integrity-art .project-logo { width: min(88%, 310px); height: auto; }
-    .samplepop-art > span, .integrity-art > span { position: absolute; top: 25px; left: 25px; z-index: 1; }
+    .samplepop-art > span:not(.project-date), .integrity-art > span:not(.project-date) { position: absolute; top: 25px; left: 25px; z-index: 1; }
     .mini-window { position: absolute; width: 190px; height: 107px; background: white; border-radius: 11px; box-shadow: 0 12px 25px rgba(32,57,96,.15); top: 68px; left: 29%; padding: 16px; transform: rotate(-7deg); }
     .mini-window::before { content: ""; display: block; width: 50%; height: 8px; border-radius: 6px; background: #d9e3f3; margin-bottom: 15px; }
     .mini-window i { display: inline-block; width: 27px; height: 40px; margin-right: 9px; border-radius: 5px 5px 0 0; background: #5c8cde; vertical-align: bottom; }
@@ -141,13 +141,13 @@
     </section>
     <section class="projects" id="proyectos">
       <div class="container">
-        <div class="section-head"><div><span class="eyebrow" data-i18n="featured">Selected work</span><h2 data-i18n="projectsTitle">Projects</h2></div><p data-i18n="projectsIntro">A selection of clients I have worked with. More details about each solution are coming soon.</p></div>
+        <div class="section-head"><div><span class="eyebrow" data-i18n="featured">Selected work</span><h2 data-i18n="projectsTitle">Featured Projects</h2></div><p data-i18n="projectsIntro">A selection of clients I have worked with. More details about each solution are coming soon.</p></div>
         <div class="project-grid">
-          <article class="project"><div class="project-art samplepop-art"><img class="project-logo" src="assets/sp.png" alt="Samplepop"><span data-project-number="01">Project 01</span><span class="project-date">2026</span></div><div class="project-body"><h3>Samplepop</h3><p class="project-description">Project for Samplepop. Solution details are being prepared.</p></div></article>
-          <article class="project"><div class="project-art integrity-art"><img class="project-logo" src="https://integrityroofingandpainting.com/assets/brand/integrity-logo-primary-clean.svg" alt="Integrity Roofing &amp; Painting" loading="lazy"><span data-project-number="02">Project 02</span><span class="project-date">2023–2025</span></div><div class="project-body"><h3>Integrity Roofing &amp; Painting</h3><p class="project-description">Project for Integrity Roofing &amp; Painting. Solution details are being prepared.</p></div></article>
+          <article class="project"><div class="project-art samplepop-art"><img class="project-logo" src="assets/sp.png" alt="Samplepop"><span data-project-number="05">Project 05</span><span class="project-date">2026</span></div><div class="project-body"><h3>Samplepop</h3><p class="project-description">Project for Samplepop. Solution details are being prepared.</p></div></article>
+          <article class="project"><div class="project-art integrity-art"><img class="project-logo" src="https://integrityroofingandpainting.com/assets/brand/integrity-logo-primary-clean.svg" alt="Integrity Roofing &amp; Painting" loading="lazy"><span data-project-number="04">Project 04</span><span class="project-date">2023–2025</span></div><div class="project-body"><h3>Integrity Roofing &amp; Painting</h3><p class="project-description">Project for Integrity Roofing &amp; Painting. Solution details are being prepared.</p></div></article>
           <article class="project"><div class="project-art art-three"><span data-project-number="03">Project 03</span><span class="project-date">2022</span><div class="mini-window" aria-hidden="true"><i></i><i></i><i></i></div></div><div class="project-body"><h3>WNY Exteriors</h3><p class="project-description">Project for WNY Exteriors. Solution details are being prepared.</p></div></article>
-          <article class="project"><div class="project-art art-one"><span data-project-number="04">Project 04</span><span class="project-date">2021</span><div class="mini-window" aria-hidden="true"><i></i><i></i><i></i></div></div><div class="project-body"><h3>Weston Dev</h3><p class="project-description">Project for Weston Dev. Solution details are being prepared.</p></div></article>
-          <article class="project"><div class="project-art art-two"><span data-project-number="05">Project 05</span><span class="project-date">2020</span><div class="mini-window" aria-hidden="true"><i></i><i></i><i></i></div></div><div class="project-body"><h3>Roadway Moving</h3><p class="project-description">Project for Roadway Moving. Solution details are being prepared.</p></div></article>
+          <article class="project"><div class="project-art art-one"><span data-project-number="02">Project 02</span><span class="project-date">2021</span><div class="mini-window" aria-hidden="true"><i></i><i></i><i></i></div></div><div class="project-body"><h3>Weston Dev</h3><p class="project-description">Project for Weston Dev. Solution details are being prepared.</p></div></article>
+          <article class="project"><div class="project-art art-two"><span data-project-number="01">Project 01</span><span class="project-date">2020</span><div class="mini-window" aria-hidden="true"><i></i><i></i><i></i></div></div><div class="project-body"><h3>Roadway Moving</h3><p class="project-description">Project for Roadway Moving. Solution details are being prepared.</p></div></article>
         </div>
         <p class="project-note" data-i18n="projectNote">Each case study will include the challenge, Zoho apps used, and outcomes once the details are confirmed.</p>
       </div>
@@ -166,7 +166,7 @@
         heroCopy: 'Diseño soluciones con Zoho para organizar información, automatizar tareas y dar claridad a cada etapa del negocio.',
         viewProjects: 'Ver proyectos', exploreTech: 'Explorar tecnologías',
         clients: 'Clientes', finance: 'Finanzas', apps: 'Aplicaciones', data: 'Datos',
-        featured: 'Trabajo destacado', projectsTitle: 'Proyectos',
+        featured: 'Trabajo destacado', projectsTitle: 'Proyectos destacados',
         projectsIntro: 'Una selección de clientes para los que he desarrollado proyectos. Próximamente, el detalle de cada solución.',
         projectNote: 'Añadiré para cada proyecto el reto, las aplicaciones usadas y el resultado una vez confirmados los detalles.',
         ecosystem: 'Ecosistema Zoho', techHeading: 'Herramientas que trabajan juntas',
