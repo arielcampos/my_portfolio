@@ -138,6 +138,7 @@
     .contact-item { display: flex; align-items: center; min-height: 50px; }
     .contact .button { background: white; color: #263975; white-space: nowrap; }
     .contact .button-outline { background: transparent; color: white; border: 1px solid #93a6da; }
+    .contact .button-outline small { color: #d4defa; }
     .contact-reveal { flex-direction: column; align-items: flex-start; justify-content: center; min-height: 50px; padding: 8px 16px; border: 0; cursor: pointer; font: inherit; text-align: left; user-select: none; touch-action: manipulation; }
     .contact-reveal small { display: block; color: #5d6f9d; font-size: .65rem; font-weight: 800; letter-spacing: .08em; margin-top: 2px; text-transform: uppercase; }
     .contact-value { display: inline-flex; align-items: center; min-height: 50px; padding: 10px 15px; border: 1px solid #93a6da; border-radius: 11px; color: white; font-size: .9rem; font-weight: 800; }
@@ -273,11 +274,27 @@
       });
     });
     document.querySelectorAll('.contact-reveal').forEach(button => {
+      const label = button.querySelector('span');
       const value = button.parentElement.querySelector('.contact-value');
-      const show = () => { value.textContent = atob(button.dataset.contact); };
-      const hide = () => { value.textContent = ''; };
-      button.addEventListener('pointerdown', event => { if (event.button === 0) show(); });
-      ['pointerup', 'pointerleave', 'pointercancel', 'blur'].forEach(type => button.addEventListener(type, hide));
+      let original = '';
+      const show = () => {
+        if (!original) original = label.textContent;
+        const contact = atob(button.dataset.contact);
+        label.textContent = contact;
+        value.textContent = contact;
+      };
+      const hide = () => {
+        if (original) label.textContent = original;
+        original = '';
+        value.textContent = '';
+      };
+      button.addEventListener('pointerdown', event => {
+        if (event.pointerType === 'mouse' && event.button !== 0) return;
+        button.setPointerCapture(event.pointerId);
+        show();
+      });
+      button.addEventListener('pointerup', hide);
+      button.addEventListener('pointercancel', hide);
       button.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); show(); } });
       button.addEventListener('keyup', event => { if (event.key === 'Enter' || event.key === ' ') hide(); });
     });
