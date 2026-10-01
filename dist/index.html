@@ -35,6 +35,12 @@
     .language-switch button:focus-visible { outline: 3px solid #476fd0; outline-offset: 2px; }
     .hero { padding: 90px 0 100px; overflow: hidden; }
     .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 52px; align-items: center; }
+    .experience-badge { position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 12px; margin: 0; padding: 8px 16px 8px 8px; border: 1px solid #d7e0f5; border-radius: 999px; background: linear-gradient(135deg,#fff,#f3f6ff 58%,#fff8e8); box-shadow: 0 12px 28px rgba(38,57,117,.12), 0 0 0 6px rgba(231,169,40,.13); }
+    .experience-badge::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg,transparent 32%,rgba(255,255,255,.8) 50%,transparent 68%); transform: translateX(-130%); animation: badge-shine 3.8s ease-in-out infinite; }
+    .experience-years { position: relative; z-index: 1; display: grid; place-items: center; min-width: 54px; height: 42px; border-radius: 999px; background: #263975; color: white; font-size: 1.15rem; font-weight: 850; letter-spacing: -.04em; animation: years-pulse 2.6s ease-out infinite; }
+    .experience-badge span:last-child { position: relative; z-index: 1; max-width: 250px; color: #243771; font-size: .92rem; font-weight: 800; line-height: 1.25; }
+    @keyframes badge-shine { 0%,58% { transform: translateX(-130%); } 100% { transform: translateX(130%); } }
+    @keyframes years-pulse { 0% { box-shadow: 0 0 0 0 rgba(231,169,40,.5); } 70% { box-shadow: 0 0 0 12px rgba(231,169,40,0); } 100% { box-shadow: 0 0 0 0 rgba(231,169,40,0); } }
     .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: #3659ae; font-size: .86rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
     .eyebrow::before { content: ""; width: 24px; height: 3px; border-radius: 3px; background: #e7a928; }
     h1, h2, h3, p { margin-top: 0; }
@@ -154,7 +160,7 @@
     footer .container { display: flex; justify-content: space-between; gap: 20px; }
     @media (max-width: 850px) { .hero-grid, .expertise-grid { grid-template-columns: 1fr; gap: 30px; } .hero { padding: 70px 0; } .visual { min-height: 350px; } .project-grid { grid-template-columns: repeat(2,1fr); } .highlight-grid { grid-template-columns: repeat(2,1fr); } .certification-grid { grid-template-columns: 1fr; } }
     @media (max-width: 620px) { .brand { max-width: calc(100% - 100px); } .brand-subtitle { font-size: .75rem; } .container { width: min(100% - 32px, 1160px); } .nav { min-height: 68px; } .nav-links { gap: 12px; } .nav-links a:not(.nav-cta) { display: none; } .nav-links .nav-cta { display: none; } .hero { padding: 60px 0 42px; } h1 { font-size: clamp(2.6rem, 11vw, 4rem); } .hero-copy { font-size: 1rem; } .visual { min-height: 310px; margin: 0 -10px; } .workflow { transform: scale(.82); transform-origin: center; } .section-head { display: block; } .section-head p { margin-top: 16px; } .project-grid, .app-grid, .highlight-grid { grid-template-columns: 1fr; } .projects, .expertise, .highlights { padding: 66px 0; } .project-body p { min-height: 0; } .contact-inner { display: block; } .contact-actions { justify-content: flex-start; margin-top: 25px; } .contact .button { margin-top: 0; } footer .container { display: block; } footer .container > span { display: block; margin-top: 8px; } }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .experience-badge::after, .experience-years { animation: none; } }
   </style>
 </head>
 <body>
@@ -168,7 +174,7 @@
     <section class="hero" id="inicio">
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow" data-i18n="portfolio">8+ years working full time on Zoho projects</span>
+          <p class="experience-badge"><span class="experience-years">8+</span><span data-i18n="experienceCopy">years working full time on Zoho projects</span></p>
           <h1><span data-i18n="heroLead">Less busywork. </span><em data-i18n="heroAccent">Clearer operations.</em></h1>
           <p class="hero-copy" data-i18n="heroCopy">I help teams cut repetitive tasks, connect sales, finance, and operations, and see exactly what needs attention next—so work moves faster, with fewer errors.</p>
           <div class="actions"><a class="button button-primary" data-i18n="viewProjects" href="#proyectos">View projects</a><a class="button button-secondary" data-i18n="exploreTech" href="#tecnologias">Explore expertise</a><a class="button button-secondary" data-i18n="upworkProfile" href="https://www.upwork.com/freelancers/~01bb0579e7eaa8299c" target="_blank" rel="noopener noreferrer">Verified Upwork experience</a></div>
@@ -226,7 +232,7 @@
       es: {
         brandSubtitle: 'Desarrollador certificado en Zoho · Especialista en integraciones',
         navProjects: 'Proyectos', navTech: 'Tecnologías', navContact: 'Hablemos',
-        portfolio: '8+ años trabajando a tiempo completo en proyectos Zoho', heroLead: 'Menos trabajo repetitivo. ', heroAccent: 'Operaciones más claras.',
+        portfolio: '8+ años trabajando a tiempo completo en proyectos Zoho', experienceCopy: 'años trabajando a tiempo completo en proyectos Zoho', heroLead: 'Menos trabajo repetitivo. ', heroAccent: 'Operaciones más claras.',
         heroCopy: 'Ayudo a los equipos a reducir tareas repetitivas, conectar ventas, finanzas y operaciones, y ver exactamente qué requiere atención—para que el trabajo avance más rápido y con menos errores.',
         viewProjects: 'Ver proyectos', exploreTech: 'Explorar experiencia', upworkProfile: 'Experiencia verificada en Upwork',
         clients: 'Automatización de ventas', finance: 'Flujos financieros', apps: 'Aplicaciones a medida', data: 'Sistemas conectados',         categorySales: 'Ventas', categoryFinance: 'Finanzas', categoryApps: 'Apps a medida', categorySupport: 'Soporte', categoryAutomation: 'Automatización', categoryReports: 'Reportes', categoryMarketing: 'Marketing', categoryDocuments: 'Documentos', categoryWeb: 'Web', categoryAi: 'IA', categoryTalent: 'Talento',
