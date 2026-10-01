@@ -74,7 +74,8 @@
     .highlight { padding: 22px; border: 1px solid #dfe8dd; border-radius: 18px; background: #f7faf7; }
     .highlight-icon { width: 38px; height: 38px; display: grid; place-items: center; color: #14a800; background: #e4f7df; border-radius: 11px; margin-bottom: 20px; }
     .highlight-icon svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
-    .highlight-value { display: block; color: #108a00; font-size: 1.8rem; font-weight: 850; letter-spacing: -.055em; margin-bottom: 9px; }
+    .highlight-value { display: block; color: #108a00; font-size: 1.8rem; font-weight: 850; letter-spacing: -.055em; line-height: 1.05; margin-bottom: 9px; }
+    .highlight-badge { font-size: 1.35rem; letter-spacing: -.03em; }
     .highlight h3 { font-size: 1.05rem; margin-bottom: 8px; }
     .highlight p { color: #68728c; line-height: 1.55; margin: 0; }
     .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 31px; }
@@ -187,7 +188,7 @@
         <p class="upwork-note" data-i18n="upworkNote">All figures in this section are metrics from my Upwork profile.</p>
         <div class="highlight-grid">
           <article class="highlight"><span class="highlight-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></span><span class="highlight-value">100%</span><h3 data-i18n="highlightOneTitle">Job Success</h3><p data-i18n="highlightOneCopy">A consistent record of successful client outcomes.</p></article>
-          <article class="highlight"><span class="highlight-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9Z"/></svg></span><span class="highlight-value">Plus</span><h3 data-i18n="highlightTwoTitle">Top Rated Plus</h3><p data-i18n="highlightTwoCopy">Upwork recognition for sustained success on larger, long-term contracts.</p></article>
+          <article class="highlight"><span class="highlight-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9Z"/></svg></span><span class="highlight-value highlight-badge">Top Rated Plus</span><h3 data-i18n="highlightTwoTitle">Highest Upwork tier</h3><p data-i18n="highlightTwoCopy">Earned through consistent results on larger, long-term contracts.</p></article>
           <article class="highlight"><span class="highlight-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18M16.5 7.5c0-1.4-1.6-2.5-4.5-2.5S7.5 6.1 7.5 7.5 9.1 10 12 10s4.5 1.1 4.5 2.5S14.9 15 12 15s-4.5-1.1-4.5-2.5"/></svg></span><span class="highlight-value">$120K+</span><h3 data-i18n="highlightThreeTitle">Delivered solutions</h3><p data-i18n="highlightThreeCopy">A record of delivering systems clients trust.</p></article>
           <article class="highlight"><span class="highlight-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18"/></svg></span><span class="highlight-value">49</span><h3 data-i18n="highlightFourTitle">Completed jobs</h3><p data-i18n="highlightFourCopy">CRM, automation, integrations, and system improvements.</p></article>
           <article class="highlight"><span class="highlight-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="highlight-value">8,953</span><h3 data-i18n="highlightFiveTitle">Hours delivered</h3><p data-i18n="highlightFiveCopy">Hands-on work building reliable Zoho solutions.</p></article>
@@ -223,7 +224,7 @@
         clients: 'Automatización de ventas', finance: 'Flujos financieros', apps: 'Aplicaciones a medida', data: 'Sistemas conectados', categorySales: 'Ventas', categoryFinance: 'Finanzas', categoryApps: 'Apps a medida', categorySupport: 'Soporte', categoryAutomation: 'Automatización',
         highlightsEyebrow: 'Rendimiento en Upwork', highlightsTitle: 'Resultados que demuestran confianza', highlightsIntro: 'Un historial comprobado construyendo automatizaciones y sistemas CRM confiables para clientes de todo el mundo.', upworkNote: 'Todas las cifras de esta sección son métricas de mi perfil de Upwork.',
         highlightOneTitle: 'Job Success', highlightOneCopy: 'Un historial consistente de resultados exitosos para los clientes.',
-        highlightTwoTitle: 'Top Rated Plus', highlightTwoCopy: 'Reconocimiento de Upwork por éxito sostenido en contratos grandes y de largo plazo.',
+        highlightTwoTitle: 'Nivel más alto de Upwork', highlightTwoCopy: 'Obtenido por resultados consistentes en contratos grandes y de largo plazo.',
         highlightThreeTitle: 'Soluciones entregadas', highlightThreeCopy: 'Un historial de entrega de sistemas en los que los clientes confían.',
         highlightFourTitle: 'Proyectos completados', highlightFourCopy: 'CRM, automatización, integraciones y mejoras de sistemas.',
         highlightFiveTitle: 'Horas entregadas', highlightFiveCopy: 'Trabajo práctico construyendo soluciones Zoho confiables.',
