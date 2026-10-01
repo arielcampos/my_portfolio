@@ -40,13 +40,14 @@
     html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
     .hero { padding: 90px 0 100px; overflow: hidden; }
     .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 52px; align-items: center; }
-    .experience-badge { position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 12px; margin: 0; padding: 8px 16px 8px 8px; border: 1px solid #d7e0f5; border-radius: 999px; background: linear-gradient(135deg,#fff,#f3f6ff 58%,#fff8e8); box-shadow: 0 12px 28px rgba(38,57,117,.12), 0 0 0 6px rgba(231,169,40,.13); }
+    .experience-badge { position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 12px; margin: 0; padding: 8px 16px 8px 8px; border: 1px solid #d7e0f5; border-radius: 999px; background: linear-gradient(135deg,#fff,#f3f6ff 58%,#fff8e8); box-shadow: 0 12px 28px rgba(38,57,117,.12), 0 0 0 6px rgba(231,169,40,.13); animation: badge-float 4.2s ease-in-out infinite; }
     .experience-badge::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg,transparent 32%,rgba(255,255,255,.8) 50%,transparent 68%); transform: translateX(-130%); animation: badge-shine 3.8s ease-in-out infinite; }
     .experience-award { position: relative; z-index: 1; width: 46px; height: 46px; flex: none; animation: years-pulse 2.6s ease-out infinite; }
     .experience-award svg { width: 100%; height: 100%; display: block; }
     .experience-badge span:last-child { position: relative; z-index: 1; max-width: 250px; color: #243771; font-size: .92rem; font-weight: 800; line-height: 1.25; }
     @keyframes badge-shine { 0%,58% { transform: translateX(-130%); } 100% { transform: translateX(130%); } }
     @keyframes years-pulse { 0% { filter: drop-shadow(0 0 0 rgba(231,169,40,.65)); } 70% { filter: drop-shadow(0 0 8px rgba(231,169,40,0)); } 100% { filter: drop-shadow(0 0 0 rgba(231,169,40,0)); } }
+    @keyframes badge-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); box-shadow: 0 18px 34px rgba(38,57,117,.16), 0 0 0 8px rgba(231,169,40,.2); } }
     .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: #3659ae; font-size: .86rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
     .eyebrow::before { content: ""; width: 24px; height: 3px; border-radius: 3px; background: #e7a928; }
     h1, h2, h3, p { margin-top: 0; }
@@ -81,19 +82,29 @@
     .center-tile .brand-mark { position: absolute; top: 21px; grid-template-columns: repeat(2, 12px); } .center-tile .brand-mark i { width: 12px; height: 12px; }
     .center-tile > span:last-child { padding-top: 41px; }
     section { scroll-margin-top: 100px; }
-    .highlights { padding: 93px 0; background: #001e00; }
+    .highlights { position: relative; overflow: hidden; padding: 93px 0; background: radial-gradient(circle at 20% 20%, #0d4a12, #001e00 42%, #001408); }
+    .highlights::before, .highlights::after { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; filter: blur(28px); pointer-events: none; animation: upwork-drift 11s ease-in-out infinite; }
+    .highlights::before { top: -150px; left: -70px; background: rgba(20,168,0,.55); }
+    .highlights::after { right: -90px; bottom: -170px; background: rgba(125,237,94,.28); animation-delay: -5.5s; }
+    .highlights .container { position: relative; z-index: 1; }
     .highlights .eyebrow { color: #95f56f; text-shadow: 0 0 18px rgba(125,237,94,.45); }
-    .highlights .section-head h2 { color: #d8ffc8; text-shadow: 0 0 22px rgba(125,237,94,.28); }
+    .highlights .section-head h2 { color: #d8ffc8; animation: title-glow 3.4s ease-in-out infinite; }
+    .button-upwork { position: relative; overflow: hidden; animation: cta-glow 2.6s ease-out infinite; }
+    .button-upwork::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg,transparent 30%,rgba(125,237,94,.35) 50%,transparent 70%); transform: translateX(-130%); animation: badge-shine 3.2s ease-in-out infinite; }
     .highlights .section-head p, .upwork-note { color: #c6ebbc; }
     .upwork-note { font-size: .85rem; font-weight: 700; margin: -10px 0 24px; }
     .highlight-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
     .highlight { padding: 22px; border: 1px solid #d7efd0; border-radius: 18px; background: #f7faf7; box-shadow: 0 0 0 1px rgba(20,168,0,.04), 0 14px 30px rgba(0,30,0,.18); }
-    .highlight-icon { width: 38px; height: 38px; display: grid; place-items: center; color: #14a800; background: #e4f7df; border-radius: 11px; margin-bottom: 20px; box-shadow: 0 0 0 4px rgba(20,168,0,.08), 0 0 16px rgba(20,168,0,.28); }
+    .highlight-icon { width: 38px; height: 38px; display: grid; place-items: center; color: #14a800; background: #e4f7df; border-radius: 11px; margin-bottom: 20px; box-shadow: 0 0 0 4px rgba(20,168,0,.08), 0 0 16px rgba(20,168,0,.28); animation: icon-float 2.8s ease-in-out infinite; }
     .highlight-icon svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; filter: drop-shadow(0 0 4px rgba(20,168,0,.45)); }
     .highlight-value { display: block; color: #108a00; font-size: 1.8rem; font-weight: 850; letter-spacing: -.055em; line-height: 1.05; margin-bottom: 9px; text-shadow: 0 0 16px rgba(16,138,0,.18); }
     .highlight-badge { font-size: 1.35rem; letter-spacing: -.03em; }
     .highlight h3 { color: #0e7a00; font-size: 1.05rem; margin-bottom: 8px; }
     .highlight p { color: #4f8f62; line-height: 1.55; margin: 0; }
+    @keyframes upwork-drift { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(36px,22px) scale(1.14); } }
+    @keyframes title-glow { 0%,100% { text-shadow: 0 0 12px rgba(125,237,94,.2); } 50% { text-shadow: 0 0 28px rgba(125,237,94,.62); } }
+    @keyframes icon-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); box-shadow: 0 0 0 6px rgba(20,168,0,.16), 0 0 22px rgba(20,168,0,.5); } }
+    @keyframes cta-glow { 0% { box-shadow: 0 0 0 0 rgba(20,168,0,.38); } 70% { box-shadow: 0 0 0 10px rgba(20,168,0,0); } 100% { box-shadow: 0 0 0 0 rgba(20,168,0,0); } }
     .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 31px; }
     .section-head h2 { font-size: clamp(2rem, 3.2vw, 3rem); letter-spacing: -.05em; margin: 10px 0 0; }
     .section-head p { max-width: 400px; line-height: 1.6; color: #68728c; margin: 0; }
@@ -183,7 +194,7 @@
     html[data-theme="dark"] footer { background: #0c1018; }
     @media (max-width: 850px) { .hero-grid, .expertise-grid { grid-template-columns: 1fr; gap: 30px; } .hero { padding: 70px 0; } .visual { min-height: 350px; } .project-grid { grid-template-columns: repeat(2,1fr); } .highlight-grid { grid-template-columns: repeat(2,1fr); } .certification-grid { grid-template-columns: 1fr; } }
     @media (max-width: 620px) { .brand { max-width: calc(100% - 100px); } .brand-subtitle { font-size: .75rem; } .container { width: min(100% - 32px, 1160px); } .nav { min-height: 68px; } .nav-links { gap: 12px; } .nav-links a:not(.nav-cta) { display: none; } .nav-links .nav-cta { display: none; } .hero { padding: 60px 0 42px; } h1 { font-size: clamp(2.6rem, 11vw, 4rem); } .hero-copy { font-size: 1rem; } .visual { min-height: 310px; margin: 0 -10px; } .workflow { transform: scale(.82); transform-origin: center; } .section-head { display: block; } .section-head p { margin-top: 16px; } .project-grid, .app-grid, .highlight-grid { grid-template-columns: 1fr; } .projects, .expertise, .highlights { padding: 66px 0; } .project-body p { min-height: 0; } .contact-inner { display: block; } .contact-actions { justify-content: flex-start; margin-top: 25px; } .contact .button { margin-top: 0; } footer .container { display: block; } footer .container > span { display: block; margin-top: 8px; } }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .experience-badge::after, .experience-award { animation: none; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .experience-badge, .experience-badge::after, .experience-award, .highlights::before, .highlights::after, .highlights .section-head h2, .highlight-icon, .button-upwork, .button-upwork::after { animation: none; } }
   </style>
 </head>
 <body>
@@ -200,7 +211,7 @@
           <p class="experience-badge"><span class="experience-award" aria-hidden="true"><svg viewBox="0 0 64 64"><polygon points="32,3 38,16 52,9 49,23 63,29 49,35 52,49 38,42 32,55 26,42 12,49 15,35 1,29 15,23 12,9 26,16" fill="#e7a928"/><circle cx="32" cy="29" r="15" fill="#263975"/><text x="32" y="34" text-anchor="middle" fill="white" font-size="13" font-weight="800" font-family="Inter, system-ui, sans-serif">8+</text></svg></span><span data-i18n="experienceCopy">years dedicated full time to Zoho systems</span></p>
           <h1><span data-i18n="heroLead">Less busywork. </span><em data-i18n="heroAccent">Clearer operations.</em></h1>
           <p class="hero-copy" data-i18n="heroCopy">I help teams cut repetitive tasks, connect sales, finance, and operations, and see exactly what needs attention next—so work moves faster, with fewer errors.</p>
-          <div class="actions"><a class="button button-primary" data-i18n="viewProjects" href="#proyectos">View projects</a><a class="button button-secondary" data-i18n="exploreTech" href="#tecnologias">Explore expertise</a><a class="button button-secondary" data-i18n="upworkProfile" href="#logros">Verified Upwork experience</a></div>
+          <div class="actions"><a class="button button-primary" data-i18n="viewProjects" href="#proyectos">View projects</a><a class="button button-secondary" data-i18n="exploreTech" href="#tecnologias">Explore expertise</a><a class="button button-secondary button-upwork" data-i18n="upworkProfile" href="#logros">Verified Upwork experience</a></div>
         </div>
         <div class="visual" aria-label="Zoho applications connected in a workflow" role="img">
           <div class="hero-apps">
