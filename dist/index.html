@@ -117,10 +117,13 @@
     .contact h2 { font-size: clamp(2rem,3vw,2.8rem); letter-spacing: -.045em; margin: 0 0 10px; }
     .contact p { color: #d4defa; line-height: 1.6; margin: 0; }
     .contact-actions { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end; }
+    .contact-item { display: flex; align-items: center; min-height: 50px; }
     .contact .button { background: white; color: #263975; white-space: nowrap; }
     .contact .button-outline { background: transparent; color: white; border: 1px solid #93a6da; }
-    .contact-reveal { border: 0; cursor: pointer; font: inherit; }
-    .contact-value { align-self: center; color: white; font-size: .9rem; font-weight: 700; }
+    .contact-reveal { min-height: 50px; padding: 8px 16px; border: 0; cursor: pointer; font: inherit; text-align: left; }
+    .contact-reveal small { display: block; color: #5d6f9d; font-size: .65rem; font-weight: 800; letter-spacing: .08em; margin-top: 2px; text-transform: uppercase; }
+    .contact-value { display: inline-flex; align-items: center; min-height: 50px; padding: 10px 15px; border: 1px solid #93a6da; border-radius: 11px; color: white; font-size: .9rem; font-weight: 800; }
+    .contact-value:empty { display: none; }
     .contact .button:hover { background: #edf2ff; }
     .contact .button-outline:hover { background: #334d99; }
     footer { background: #1b2a5a; color: #bbc9ee; padding: 23px 0; font-size: .86rem; }
@@ -184,7 +187,7 @@
       </div>
     </section>
     <section class="expertise" id="tecnologias"><div class="container expertise-grid"><div><span class="eyebrow" data-i18n="ecosystem">Core expertise</span><h2 style="font-size:clamp(2rem,3.2vw,3rem);letter-spacing:-.05em;margin:12px 0 18px" data-i18n="techHeading">The skills behind better systems</h2><p class="expertise-copy" data-i18n="techCopy">From initial process review to long-term support, I build practical Zoho solutions that are easy to use, reliable to operate, and ready to scale.</p></div><div class="app-grid"><div class="app"><span class="app-badge" style="background:#e45a53">C</span><span><strong>Zoho CRM</strong><small data-i18n="skillCrm">Modules, pipelines, blueprints, lead and deal automation</small></span></div><div class="app"><span class="app-badge" style="background:#4e80d8">Cr</span><span><strong>Zoho Creator</strong><small data-i18n="skillCreator">Custom apps, portals, and complex business logic</small></span></div><div class="app"><span class="app-badge" style="background:#263975">D</span><span><strong>Deluge &amp; APIs</strong><small data-i18n="skillDeluge">Maintainable scripting, REST APIs, webhooks, and error handling</small></span></div><div class="app"><span class="app-badge" style="background:#53ad7c">F</span><span><strong>Automation</strong><small data-i18n="skillAutomation">Zoho Flow, Make, n8n, and event-driven workflows</small></span></div><div class="app"><span class="app-badge" style="background:#e9ad35">B</span><span><strong>Finance systems</strong><small data-i18n="skillFinance">Zoho Books, QuickBooks, Xero, invoicing, and payments</small></span></div><div class="app"><span class="app-badge" style="background:#5677c0">D</span><span><strong>Zoho Desk &amp; FSM</strong><small data-i18n="skillSupport">Support workflows, ticket automation, SLAs, and field service</small></span></div></div></div></section>
-    <section class="contact" id="contacto"><div class="container contact-inner"><div><h2 data-i18n="contactHeading">Have a project in mind?</h2><p data-i18n="contactCopy">Let’s talk about the process you want to improve and the tools that can help.</p></div><div class="contact-actions"><button type="button" class="button contact-reveal" data-contact="YXJpZWxjYW1wb3MxOTRAZ21haWwuY29t"><span data-i18n="showEmail">Show email</span></button><span class="contact-value" aria-live="polite"></span><a class="button button-outline" href="https://www.linkedin.com/in/ariel-campos-707732104/" target="_blank" rel="noopener noreferrer">LinkedIn</a><button type="button" class="button button-outline contact-reveal" data-contact="MTEgNjI5My00MTQx"><span data-i18n="showPhone">Show phone</span></button><span class="contact-value" aria-live="polite"></span></div></div></section>
+    <section class="contact" id="contacto"><div class="container contact-inner"><div><h2 data-i18n="contactHeading">Have a project in mind?</h2><p data-i18n="contactCopy">Let’s talk about the process you want to improve and the tools that can help.</p></div><div class="contact-actions"><div class="contact-item"><button type="button" class="button contact-reveal" data-contact="YXJpZWxjYW1wb3MxOTRAZ21haWwuY29t"><span data-i18n="showEmail">Reveal email</span><small data-i18n="base64Encoded">Base64 encoded</small></button><span class="contact-value" aria-live="polite"></span></div><div class="contact-item"><a class="button button-outline" href="https://www.linkedin.com/in/ariel-campos-707732104/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div><div class="contact-item"><button type="button" class="button button-outline contact-reveal" data-contact="MTEgNjI5My00MTQx"><span data-i18n="showPhone">Reveal phone</span><small data-i18n="base64Encoded">Base64 encoded</small></button><span class="contact-value" aria-live="polite"></span></div></div></div></section>
   </main>
   <footer><div class="container"><div>© <span id="year"></span> Ari Campos. <span data-i18n="footerPortfolio">Professional portfolio.</span></div><span data-i18n="footerTag">Designed around a connected ecosystem.</span></div></footer>
   <script>
@@ -212,7 +215,7 @@
         skillDeluge: 'Scripting mantenible, APIs REST, webhooks y manejo de errores', skillAutomation: 'Zoho Flow, Make, n8n y flujos orientados a eventos',
         skillFinance: 'Zoho Books, QuickBooks, Xero, facturación y pagos', skillSupport: 'Flujos de soporte, automatización de tickets, SLA y servicio en campo',
         contactHeading: '¿Tienes un proyecto en mente?',
-        contactCopy: 'Hablemos sobre el proceso que quieres mejorar y las herramientas que podrían ayudarte.', showEmail: 'Ver email', showPhone: 'Ver teléfono',
+        contactCopy: 'Hablemos sobre el proceso que quieres mejorar y las herramientas que podrían ayudarte.', showEmail: 'Revelar email', showPhone: 'Revelar teléfono', base64Encoded: 'Codificado en Base64',
         footerPortfolio: 'Portafolio profesional.', footerTag: 'Diseño inspirado en un ecosistema conectado.', visitWebsite: 'Visitar sitio web'
       }
     };
