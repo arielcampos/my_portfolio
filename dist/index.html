@@ -64,6 +64,12 @@
     .center-tile .brand-mark { position: absolute; top: 21px; grid-template-columns: repeat(2, 12px); } .center-tile .brand-mark i { width: 12px; height: 12px; }
     .center-tile > span:last-child { padding-top: 41px; }
     section { scroll-margin-top: 100px; }
+    .highlights { padding: 0 0 93px; }
+    .highlight-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .highlight { padding: 26px; border: 1px solid #e3e8f2; border-radius: 18px; background: white; }
+    .highlight-value { display: block; color: #2d509f; font-size: 2rem; font-weight: 850; letter-spacing: -.055em; margin-bottom: 9px; }
+    .highlight h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .highlight p { color: #68728c; line-height: 1.55; margin: 0; }
     .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 31px; }
     .section-head h2 { font-size: clamp(2rem, 3.2vw, 3rem); letter-spacing: -.05em; margin: 10px 0 0; }
     .section-head p { max-width: 400px; line-height: 1.6; color: #68728c; margin: 0; }
@@ -96,8 +102,10 @@
     .expertise-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 75px; align-items: start; }
     .expertise-copy { color: #68728c; line-height: 1.7; font-size: 1.08rem; }
     .app-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 13px; }
-    .app { display: flex; align-items: center; gap: 14px; background: white; border: 1px solid #e7eaf3; border-radius: 14px; padding: 17px; font-weight: 700; }
+    .app { display: flex; align-items: flex-start; gap: 14px; background: white; border: 1px solid #e7eaf3; border-radius: 14px; padding: 17px; font-weight: 700; }
     .app-badge { width: 39px; height: 39px; border-radius: 10px; display: grid; place-items: center; color: white; font-weight: 800; }
+    .app strong, .app small { display: block; }
+    .app small { color: #68728c; font-size: .8rem; font-weight: 600; line-height: 1.4; margin-top: 3px; }
     .contact { background: #23356e; color: white; padding: 66px 0; }
     .contact-inner { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
     .contact h2 { font-size: clamp(2rem,3vw,2.8rem); letter-spacing: -.045em; margin: 0 0 10px; }
@@ -109,8 +117,8 @@
     .contact .button-outline:hover { background: #334d99; }
     footer { background: #1b2a5a; color: #bbc9ee; padding: 23px 0; font-size: .86rem; }
     footer .container { display: flex; justify-content: space-between; gap: 20px; }
-    @media (max-width: 850px) { .hero-grid, .expertise-grid { grid-template-columns: 1fr; gap: 30px; } .hero { padding: 70px 0; } .visual { min-height: 350px; } .project-grid { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width: 620px) { .brand { max-width: calc(100% - 100px); } .brand-subtitle { font-size: .75rem; } .container { width: min(100% - 32px, 1160px); } .nav { min-height: 68px; } .nav-links { gap: 12px; } .nav-links a:not(.nav-cta) { display: none; } .nav-links .nav-cta { display: none; } .hero { padding: 60px 0 42px; } h1 { font-size: clamp(2.6rem, 11vw, 4rem); } .hero-copy { font-size: 1rem; } .visual { min-height: 310px; margin: 0 -10px; } .workflow { transform: scale(.82); transform-origin: center; } .section-head { display: block; } .section-head p { margin-top: 16px; } .project-grid, .app-grid { grid-template-columns: 1fr; } .projects, .expertise { padding: 66px 0; } .project-body p { min-height: 0; } .contact-inner { display: block; } .contact-actions { justify-content: flex-start; margin-top: 25px; } .contact .button { margin-top: 0; } footer .container { display: block; } footer .container > span { display: block; margin-top: 8px; } }
+    @media (max-width: 850px) { .hero-grid, .expertise-grid { grid-template-columns: 1fr; gap: 30px; } .hero { padding: 70px 0; } .visual { min-height: 350px; } .project-grid { grid-template-columns: repeat(2,1fr); } .highlight-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 620px) { .brand { max-width: calc(100% - 100px); } .brand-subtitle { font-size: .75rem; } .container { width: min(100% - 32px, 1160px); } .nav { min-height: 68px; } .nav-links { gap: 12px; } .nav-links a:not(.nav-cta) { display: none; } .nav-links .nav-cta { display: none; } .hero { padding: 60px 0 42px; } h1 { font-size: clamp(2.6rem, 11vw, 4rem); } .hero-copy { font-size: 1rem; } .visual { min-height: 310px; margin: 0 -10px; } .workflow { transform: scale(.82); transform-origin: center; } .section-head { display: block; } .section-head p { margin-top: 16px; } .project-grid, .app-grid { grid-template-columns: 1fr; } .projects, .expertise, .highlights { padding: 66px 0; } .project-body p { min-height: 0; } .contact-inner { display: block; } .contact-actions { justify-content: flex-start; margin-top: 25px; } .contact .button { margin-top: 0; } footer .container { display: block; } footer .container > span { display: block; margin-top: 8px; } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
@@ -125,20 +133,30 @@
     <section class="hero" id="inicio">
       <div class="container hero-grid">
         <div>
-          <span class="eyebrow" data-i18n="portfolio">Professional portfolio</span>
-          <h1><span data-i18n="heroLead">Simpler workflows through a </span><em data-i18n="heroAccent">connected ecosystem.</em></h1>
-          <p class="hero-copy" data-i18n="heroCopy">I build Zoho solutions that organize information, automate work, and make every stage of a business easier to manage.</p>
-          <div class="actions"><a class="button button-primary" data-i18n="viewProjects" href="#proyectos">View projects</a><a class="button button-secondary" data-i18n="exploreTech" href="#tecnologias">Explore technologies</a></div>
+          <span class="eyebrow" data-i18n="portfolio">Zoho Developer &amp; Automation Architect</span>
+          <h1><span data-i18n="heroLead">Business systems built to </span><em data-i18n="heroAccent">work smarter.</em></h1>
+          <p class="hero-copy" data-i18n="heroCopy">I design, automate, and integrate scalable Zoho systems that eliminate manual work and give teams clearer, more reliable operations.</p>
+          <div class="actions"><a class="button button-primary" data-i18n="viewProjects" href="#proyectos">View projects</a><a class="button button-secondary" data-i18n="exploreTech" href="#tecnologias">Explore expertise</a></div>
         </div>
         <div class="visual" aria-label="Zoho applications connected in a workflow" role="img">
           <div class="workflow">
             <svg class="connector" viewBox="0 0 480 350" aria-hidden="true"><path d="M115 70 C165 70 170 130 230 140 M375 110 C315 110 310 135 270 150 M205 285 C215 240 225 225 235 190 M380 260 C330 230 305 205 275 180"/></svg>
-            <div class="flow-card crm"><span class="flow-icon">C</span><span><strong>Zoho CRM</strong><small data-i18n="clients">Customers</small></span></div>
-            <div class="flow-card books"><span class="flow-icon">B</span><span><strong>Zoho Books</strong><small data-i18n="finance">Finance</small></span></div>
-            <div class="flow-card creator"><span class="flow-icon">Cr</span><span><strong>Zoho Creator</strong><small data-i18n="apps">Applications</small></span></div>
-            <div class="flow-card analytics"><span class="flow-icon">A</span><span><strong>Zoho Analytics</strong><small data-i18n="data">Data</small></span></div>
-            <div class="center-tile"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Zoho One</span></div>
+            <div class="flow-card crm"><span class="flow-icon">C</span><span><strong>Zoho CRM</strong><small data-i18n="clients">Sales automation</small></span></div>
+            <div class="flow-card books"><span class="flow-icon">B</span><span><strong>Zoho Books</strong><small data-i18n="finance">Finance workflows</small></span></div>
+            <div class="flow-card creator"><span class="flow-icon">Cr</span><span><strong>Zoho Creator</strong><small data-i18n="apps">Custom applications</small></span></div>
+            <div class="flow-card analytics"><span class="flow-icon">API</span><span><strong>Integrations</strong><small data-i18n="data">Connected systems</small></span></div>
+            <div class="center-tile"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>System Design</span></div>
           </div>
+        </div>
+      </div>
+    </section>
+    <section class="highlights" id="logros">
+      <div class="container">
+        <div class="section-head"><div><span class="eyebrow" data-i18n="highlightsEyebrow">Professional highlights</span><h2 data-i18n="highlightsTitle">Experience that improves operations</h2></div><p data-i18n="highlightsIntro">I combine technical depth with a practical understanding of the processes teams use every day.</p></div>
+        <div class="highlight-grid">
+          <article class="highlight"><span class="highlight-value">8+</span><h3 data-i18n="highlightOneTitle">Years of hands-on experience</h3><p data-i18n="highlightOneCopy">Building CRM systems, automation, integrations, and custom workflows for businesses of all sizes.</p></article>
+          <article class="highlight"><span class="highlight-value">Zoho</span><h3 data-i18n="highlightTwoTitle">Creator Associate Developer</h3><p data-i18n="highlightTwoCopy">Certified expertise in custom application development, business logic, and scalable Zoho solutions.</p></article>
+          <article class="highlight"><span class="highlight-value">End-to-end</span><h3 data-i18n="highlightThreeTitle">Business-first delivery</h3><p data-i18n="highlightThreeCopy">From system reviews and fixes to long-term support, every solution is designed to be reliable and maintainable.</p></article>
         </div>
       </div>
     </section>
@@ -155,7 +173,7 @@
         <p class="project-note" data-i18n="projectNote">Each case study will include the challenge, Zoho apps used, and outcomes once the details are confirmed.</p>
       </div>
     </section>
-    <section class="expertise" id="tecnologias"><div class="container expertise-grid"><div><span class="eyebrow" data-i18n="ecosystem">Zoho ecosystem</span><h2 style="font-size:clamp(2rem,3.2vw,3rem);letter-spacing:-.05em;margin:12px 0 18px" data-i18n="techHeading">Tools that work together</h2><p class="expertise-copy" data-i18n="techCopy">An overview of the apps that can support connected solutions. The final selection will reflect my actual project experience.</p></div><div class="app-grid"><div class="app"><span class="app-badge" style="background:#e45a53">C</span>Zoho CRM</div><div class="app"><span class="app-badge" style="background:#e9ad35">B</span>Zoho Books</div><div class="app"><span class="app-badge" style="background:#4e80d8">Cr</span>Zoho Creator</div><div class="app"><span class="app-badge" style="background:#53ad7c">A</span>Zoho Analytics</div></div></div></section>
+    <section class="expertise" id="tecnologias"><div class="container expertise-grid"><div><span class="eyebrow" data-i18n="ecosystem">Core expertise</span><h2 style="font-size:clamp(2rem,3.2vw,3rem);letter-spacing:-.05em;margin:12px 0 18px" data-i18n="techHeading">The skills behind better systems</h2><p class="expertise-copy" data-i18n="techCopy">From initial process review to long-term support, I build practical Zoho solutions that are easy to use, reliable to operate, and ready to scale.</p></div><div class="app-grid"><div class="app"><span class="app-badge" style="background:#e45a53">C</span><span><strong>Zoho CRM</strong><small data-i18n="skillCrm">Modules, pipelines, blueprints, lead and deal automation</small></span></div><div class="app"><span class="app-badge" style="background:#4e80d8">Cr</span><span><strong>Zoho Creator</strong><small data-i18n="skillCreator">Custom apps, portals, and complex business logic</small></span></div><div class="app"><span class="app-badge" style="background:#263975">D</span><span><strong>Deluge &amp; APIs</strong><small data-i18n="skillDeluge">Maintainable scripting, REST APIs, webhooks, and error handling</small></span></div><div class="app"><span class="app-badge" style="background:#53ad7c">F</span><span><strong>Automation</strong><small data-i18n="skillAutomation">Zoho Flow, Make, n8n, and event-driven workflows</small></span></div><div class="app"><span class="app-badge" style="background:#e9ad35">B</span><span><strong>Finance systems</strong><small data-i18n="skillFinance">Zoho Books, QuickBooks, Xero, invoicing, and payments</small></span></div><div class="app"><span class="app-badge" style="background:#5677c0">D</span><span><strong>Zoho Desk &amp; FSM</strong><small data-i18n="skillSupport">Support workflows, ticket automation, SLAs, and field service</small></span></div></div></div></section>
     <section class="contact" id="contacto"><div class="container contact-inner"><div><h2 data-i18n="contactHeading">Have a project in mind?</h2><p data-i18n="contactCopy">Let’s talk about the process you want to improve and the tools that can help.</p></div><div class="contact-actions"><a class="button" href="mailto:arielcampos194@gmail.com">arielcampos194@gmail.com</a><a class="button button-outline" href="https://www.linkedin.com/in/ariel-campos-707732104/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a class="button button-outline" href="tel:1162934141">11 6293-4141</a></div></div></section>
   </main>
   <footer><div class="container"><div>© <span id="year"></span> Ari Campos. <span data-i18n="footerPortfolio">Professional portfolio.</span></div><span data-i18n="footerTag">Designed around a connected ecosystem.</span></div></footer>
@@ -165,15 +183,22 @@
       es: {
         brandSubtitle: 'Desarrollador certificado en Zoho · Especialista en integraciones',
         navProjects: 'Proyectos', navTech: 'Tecnologías', navContact: 'Hablemos',
-        portfolio: 'Portafolio profesional', heroLead: 'Procesos más simples con un ecosistema ', heroAccent: 'conectado.',
-        heroCopy: 'Diseño soluciones con Zoho para organizar información, automatizar tareas y dar claridad a cada etapa del negocio.',
-        viewProjects: 'Ver proyectos', exploreTech: 'Explorar tecnologías',
-        clients: 'Clientes', finance: 'Finanzas', apps: 'Aplicaciones', data: 'Datos',
+        portfolio: 'Desarrollador Zoho · Arquitecto de automatización', heroLead: 'Sistemas de negocio diseñados para ', heroAccent: 'trabajar mejor.',
+        heroCopy: 'Diseño, automatizo e integro sistemas Zoho escalables que eliminan trabajo manual y dan a los equipos operaciones más claras y confiables.',
+        viewProjects: 'Ver proyectos', exploreTech: 'Explorar experiencia',
+        clients: 'Automatización de ventas', finance: 'Flujos financieros', apps: 'Aplicaciones a medida', data: 'Sistemas conectados',
+        highlightsEyebrow: 'Logros profesionales', highlightsTitle: 'Experiencia que mejora operaciones', highlightsIntro: 'Combino profundidad técnica con una comprensión práctica de los procesos que los equipos usan cada día.',
+        highlightOneTitle: 'Años de experiencia práctica', highlightOneCopy: 'Construyendo sistemas CRM, automatizaciones, integraciones y flujos personalizados para empresas de todos los tamaños.',
+        highlightTwoTitle: 'Creator Associate Developer', highlightTwoCopy: 'Experiencia certificada en aplicaciones a medida, lógica de negocio y soluciones Zoho escalables.',
+        highlightThreeTitle: 'Entrega centrada en el negocio', highlightThreeCopy: 'Desde revisiones y correcciones hasta soporte a largo plazo, cada solución está diseñada para ser confiable y mantenible.',
         featured: 'Trabajo destacado', projectsTitle: 'Proyectos destacados',
         projectsIntro: 'Una selección de clientes para los que he desarrollado proyectos. Próximamente, el detalle de cada solución.',
         projectNote: 'Añadiré para cada proyecto el reto, las aplicaciones usadas y el resultado una vez confirmados los detalles.',
-        ecosystem: 'Ecosistema Zoho', techHeading: 'Herramientas que trabajan juntas',
-        techCopy: 'Una vista de las aplicaciones que pueden apoyar soluciones conectadas. La selección final reflejará mi experiencia real en los proyectos.',
+        ecosystem: 'Experiencia principal', techHeading: 'Las habilidades detrás de mejores sistemas',
+        techCopy: 'Desde la revisión inicial de procesos hasta el soporte a largo plazo, construyo soluciones Zoho prácticas, fáciles de usar, confiables y listas para escalar.',
+        skillCrm: 'Módulos, pipelines, blueprints y automatización de leads y deals', skillCreator: 'Aplicaciones a medida, portales y lógica de negocio compleja',
+        skillDeluge: 'Scripting mantenible, APIs REST, webhooks y manejo de errores', skillAutomation: 'Zoho Flow, Make, n8n y flujos orientados a eventos',
+        skillFinance: 'Zoho Books, QuickBooks, Xero, facturación y pagos', skillSupport: 'Flujos de soporte, automatización de tickets, SLA y servicio en campo',
         contactHeading: '¿Tienes un proyecto en mente?',
         contactCopy: 'Hablemos sobre el proceso que quieres mejorar y las herramientas que podrían ayudarte.',
         footerPortfolio: 'Portafolio profesional.', footerTag: 'Diseño inspirado en un ecosistema conectado.', visitWebsite: 'Visitar sitio web'
