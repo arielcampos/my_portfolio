@@ -48,6 +48,10 @@
     .button-secondary { color: #263975; background: white; border: 1px solid #dce2f0; }
     .button-secondary:hover { border-color: #8298d5; }
     .visual { min-height: 438px; position: relative; display: grid; place-items: center; }
+    .hero-apps { width: min(100%, 520px); display: grid; grid-template-columns: 1fr 1fr; gap: 10px; position: relative; z-index: 1; }
+    .hero-app { background: white; border: 1px solid #e9edf6; border-radius: 14px; padding: 12px 14px; box-shadow: 0 10px 28px rgba(38,52,107,.08); }
+    .hero-app strong { display: block; font-size: .86rem; }
+    .hero-app small { display: block; color: #66708c; font-size: .72rem; line-height: 1.35; margin-top: 3px; }
     .visual::before { content: ""; position: absolute; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, #e6edff 0%, rgba(230,237,255,0) 70%); }
     .workflow { position: relative; width: min(100%, 480px); height: 350px; }
     .connector { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -170,14 +174,17 @@
           <div class="actions"><a class="button button-primary" data-i18n="viewProjects" href="#proyectos">View projects</a><a class="button button-secondary" data-i18n="exploreTech" href="#tecnologias">Explore expertise</a><a class="button button-secondary" data-i18n="upworkProfile" href="https://www.upwork.com/freelancers/~01bb0579e7eaa8299c" target="_blank" rel="noopener noreferrer">Verified Upwork experience</a></div>
         </div>
         <div class="visual" aria-label="Zoho applications connected in a workflow" role="img">
-          <div class="workflow">
-            <svg class="connector" viewBox="0 0 480 350" aria-hidden="true"><path d="M100 65 C160 65 170 120 225 140 M380 65 C320 65 310 120 270 140 M90 290 C155 275 185 225 225 190 M390 290 C325 275 295 225 270 190 M240 265 L240 278"/></svg>
-            <div class="flow-card crm"><span class="flow-icon">S</span><span><strong data-i18n="categorySales">Sales</strong><small>Zoho CRM</small></span></div>
-            <div class="flow-card books"><span class="flow-icon">F</span><span><strong data-i18n="categoryFinance">Finance</strong><small>Books · QB · Xero</small></span></div>
-            <div class="flow-card creator"><span class="flow-icon">A</span><span><strong data-i18n="categoryApps">Custom apps</strong><small>Zoho Creator</small></span></div>
-            <div class="flow-card analytics"><span class="flow-icon">Su</span><span><strong data-i18n="categorySupport">Support</strong><small>Desk · FSM</small></span></div>
-            <div class="flow-card automation-card"><span class="flow-icon">Au</span><span><strong data-i18n="categoryAutomation">Automation</strong><small>Flow · Make · n8n</small></span></div>
-            <div class="center-tile"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Zoho Suite</span></div>
+          <div class="hero-apps">
+            <div class="hero-app"><strong data-i18n="categorySales">Sales</strong><small>Zoho CRM, Zoho Bigin, Zoho Recruit</small></div>
+            <div class="hero-app"><strong data-i18n="categoryApps">Custom apps</strong><small>Zoho Creator, Deluge, APIs</small></div>
+            <div class="hero-app"><strong data-i18n="categoryAutomation">Automation</strong><small>Zoho Flow, Make, n8n</small></div>
+            <div class="hero-app"><strong data-i18n="categoryReports">Reports</strong><small>Zoho Analytics</small></div>
+            <div class="hero-app"><strong data-i18n="categoryFinance">Finance</strong><small>Zoho Books, QuickBooks, Xero</small></div>
+            <div class="hero-app"><strong data-i18n="categorySupport">Support</strong><small>Zoho Desk, Zoho FSM</small></div>
+            <div class="hero-app"><strong data-i18n="categoryMarketing">Marketing</strong><small>Zoho Campaigns, Zoho Marketing Automation, Zoho PageSense, Zoho SalesIQ</small></div>
+            <div class="hero-app"><strong data-i18n="categoryDocuments">Documents</strong><small>Zoho Writer, Zoho WorkDrive, Zoho Sign</small></div>
+            <div class="hero-app"><strong data-i18n="categoryWeb">Web</strong><small>Zoho Forms, Zoho Sites, Zoho Bookings</small></div>
+            <div class="hero-app"><strong data-i18n="categoryAi">AI</strong><small>ChatGPT, Claude MCP</small></div>
           </div>
         </div>
       </div>
@@ -221,7 +228,7 @@
         portfolio: '8+ años trabajando a tiempo completo en proyectos Zoho', heroLead: 'Menos trabajo repetitivo. ', heroAccent: 'Operaciones más claras.',
         heroCopy: 'Ayudo a los equipos a reducir tareas repetitivas, conectar ventas, finanzas y operaciones, y ver exactamente qué requiere atención—para que el trabajo avance más rápido y con menos errores.',
         viewProjects: 'Ver proyectos', exploreTech: 'Explorar experiencia', upworkProfile: 'Experiencia verificada en Upwork',
-        clients: 'Automatización de ventas', finance: 'Flujos financieros', apps: 'Aplicaciones a medida', data: 'Sistemas conectados', categorySales: 'Ventas', categoryFinance: 'Finanzas', categoryApps: 'Apps a medida', categorySupport: 'Soporte', categoryAutomation: 'Automatización',
+        clients: 'Automatización de ventas', finance: 'Flujos financieros', apps: 'Aplicaciones a medida', data: 'Sistemas conectados',         categorySales: 'Ventas', categoryFinance: 'Finanzas', categoryApps: 'Apps a medida', categorySupport: 'Soporte', categoryAutomation: 'Automatización', categoryReports: 'Reportes', categoryMarketing: 'Marketing', categoryDocuments: 'Documentos', categoryWeb: 'Web', categoryAi: 'IA',
         highlightsEyebrow: 'Rendimiento en Upwork', highlightsTitle: 'Resultados que demuestran confianza', highlightsIntro: 'Un historial comprobado construyendo automatizaciones y sistemas CRM confiables para clientes de todo el mundo.', upworkNote: 'Todas las cifras de esta sección son métricas de mi perfil de Upwork.',
         highlightOneTitle: 'Job Success', highlightOneCopy: 'Un historial consistente de resultados exitosos para los clientes.',
         highlightTwoTitle: 'Nivel más alto de Upwork', highlightTwoCopy: 'Obtenido por resultados consistentes en contratos grandes y de largo plazo.',
