@@ -33,6 +33,11 @@
     .language-switch button { font: inherit; font-size: .82rem; font-weight: 800; min-width: 35px; min-height: 33px; border: 0; border-radius: 6px; background: transparent; color: #64708d; cursor: pointer; }
     .language-switch button[aria-pressed="true"] { background: #263975; color: white; }
     .language-switch button:focus-visible { outline: 3px solid #476fd0; outline-offset: 2px; }
+    .theme-toggle { width: 41px; height: 41px; display: grid; place-items: center; border: 1px solid #dce2f0; border-radius: 9px; background: #fff; color: #263975; cursor: pointer; }
+    .theme-toggle svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .theme-toggle .icon-sun { display: none; }
+    html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
     .hero { padding: 90px 0 100px; overflow: hidden; }
     .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 52px; align-items: center; }
     .experience-badge { position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 12px; margin: 0; padding: 8px 16px 8px 8px; border: 1px solid #d7e0f5; border-radius: 999px; background: linear-gradient(135deg,#fff,#f3f6ff 58%,#fff8e8); box-shadow: 0 12px 28px rgba(38,57,117,.12), 0 0 0 6px rgba(231,169,40,.13); }
@@ -159,6 +164,20 @@
     .contact .button-outline:hover { background: #334d99; }
     footer { background: #1b2a5a; color: #bbc9ee; padding: 23px 0; font-size: .86rem; }
     footer .container { display: flex; justify-content: space-between; gap: 20px; }
+    html[data-theme="dark"] { color: #e7ebf5; background: #10131c; }
+    html[data-theme="dark"] body { background: #10131c; }
+    html[data-theme="dark"] .site-header { background: rgba(16,19,28,.92); border-bottom-color: #2a3142; }
+    html[data-theme="dark"] .nav-links a { color: #c5cde0; }
+    html[data-theme="dark"] .nav-links a:hover { color: white; }
+    html[data-theme="dark"] .brand-subtitle, html[data-theme="dark"] .eyebrow, html[data-theme="dark"] h1 em, html[data-theme="dark"] .project-link { color: #9eb6f5; }
+    html[data-theme="dark"] .language-switch, html[data-theme="dark"] .theme-toggle, html[data-theme="dark"] .button-secondary, html[data-theme="dark"] .hero-app, html[data-theme="dark"] .project, html[data-theme="dark"] .app, html[data-theme="dark"] .certification, html[data-theme="dark"] .highlight, html[data-theme="dark"] .experience-badge { background: #1b2130; border-color: #343c50; color: #e7ebf5; }
+    html[data-theme="dark"] .language-switch button { color: #b7c0d4; }
+    html[data-theme="dark"] .experience-badge span:last-child, html[data-theme="dark"] .hero-app strong, html[data-theme="dark"] .project-client, html[data-theme="dark"] .case-study summary { color: #f3f6fb; }
+    html[data-theme="dark"] .hero-copy, html[data-theme="dark"] .section-head p, html[data-theme="dark"] .expertise-copy, html[data-theme="dark"] .project-body p, html[data-theme="dark"] .certification p, html[data-theme="dark"] .app small, html[data-theme="dark"] .hero-app small, html[data-theme="dark"] .highlight p, html[data-theme="dark"] .project-meta, html[data-theme="dark"] .project-client span { color: #a8b2c8; }
+    html[data-theme="dark"] .projects, html[data-theme="dark"] .certifications { background: #161b27; border-color: #2a3142; }
+    html[data-theme="dark"] .case-study { border-top-color: #343c50; }
+    html[data-theme="dark"] .app-icons { background: #f7f8fb; }
+    html[data-theme="dark"] footer { background: #0c1018; }
     @media (max-width: 850px) { .hero-grid, .expertise-grid { grid-template-columns: 1fr; gap: 30px; } .hero { padding: 70px 0; } .visual { min-height: 350px; } .project-grid { grid-template-columns: repeat(2,1fr); } .highlight-grid { grid-template-columns: repeat(2,1fr); } .certification-grid { grid-template-columns: 1fr; } }
     @media (max-width: 620px) { .brand { max-width: calc(100% - 100px); } .brand-subtitle { font-size: .75rem; } .container { width: min(100% - 32px, 1160px); } .nav { min-height: 68px; } .nav-links { gap: 12px; } .nav-links a:not(.nav-cta) { display: none; } .nav-links .nav-cta { display: none; } .hero { padding: 60px 0 42px; } h1 { font-size: clamp(2.6rem, 11vw, 4rem); } .hero-copy { font-size: 1rem; } .visual { min-height: 310px; margin: 0 -10px; } .workflow { transform: scale(.82); transform-origin: center; } .section-head { display: block; } .section-head p { margin-top: 16px; } .project-grid, .app-grid, .highlight-grid { grid-template-columns: 1fr; } .projects, .expertise, .highlights { padding: 66px 0; } .project-body p { min-height: 0; } .contact-inner { display: block; } .contact-actions { justify-content: flex-start; margin-top: 25px; } .contact .button { margin-top: 0; } footer .container { display: block; } footer .container > span { display: block; margin-top: 8px; } }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .experience-badge::after, .experience-award { animation: none; } }
@@ -168,7 +187,7 @@
   <header class="site-header">
     <nav class="container nav" aria-label="Main navigation">
       <a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="brand-copy"><span class="brand-name">Ari Leonardo Campos</span><span class="brand-subtitle" data-i18n="brandSubtitle">Certified Zoho Developer &amp; Integration Specialist</span></span></a>
-      <div class="nav-links"><a data-i18n="navProjects" href="#proyectos">Projects</a><a data-i18n="navTech" href="#tecnologias">Technologies</a><a data-i18n="navContact" class="nav-cta" href="#contacto">Let’s talk</a><div class="language-switch" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true" aria-label="English">EN</button><button type="button" data-lang="es" aria-pressed="false" aria-label="Español">ES</button></div></div>
+      <div class="nav-links"><a data-i18n="navProjects" href="#proyectos">Projects</a><a data-i18n="navTech" href="#tecnologias">Technologies</a><a data-i18n="navContact" class="nav-cta" href="#contacto">Let’s talk</a><button type="button" class="theme-toggle" aria-pressed="false" aria-label="Dark mode"><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/></svg><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button><div class="language-switch" role="group" aria-label="Language"><button type="button" data-lang="en" aria-pressed="true" aria-label="English">EN</button><button type="button" data-lang="es" aria-pressed="false" aria-label="Español">ES</button></div></div>
     </nav>
   </header>
   <main>
@@ -275,6 +294,9 @@
       });
       document.querySelector('.site-header nav').setAttribute('aria-label', spanish ? 'Navegación principal' : 'Main navigation');
       document.querySelector('.language-switch').setAttribute('aria-label', spanish ? 'Idioma' : 'Language');
+      const themeButton = document.querySelector('.theme-toggle');
+      const dark = document.documentElement.dataset.theme === 'dark';
+      themeButton.setAttribute('aria-label', dark ? (spanish ? 'Modo claro' : 'Light mode') : (spanish ? 'Modo oscuro' : 'Dark mode'));
       document.querySelector('.visual').setAttribute('aria-label', spanish ? 'Aplicaciones Zoho conectadas en un flujo de trabajo' : 'Zoho applications connected in a workflow');
       document.title = spanish ? 'Ari Leonardo Campos | Portafolio Zoho' : 'Ari Leonardo Campos | Zoho Portfolio';
       document.querySelector('meta[name="description"]').content = spanish
@@ -314,9 +336,25 @@
       button.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); show(); } });
       button.addEventListener('keyup', event => { if (event.key === 'Enter' || event.key === ' ') hide(); });
     });
+    const themeKey = 'ari-portfolio-theme';
+    const themeButton = document.querySelector('.theme-toggle');
+    function setTheme(theme) {
+      const dark = theme === 'dark';
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+      themeButton.setAttribute('aria-pressed', String(dark));
+      document.querySelector('meta[name="theme-color"]').content = dark ? '#10131c' : '#f8f9fc';
+      const spanish = document.documentElement.lang === 'es';
+      themeButton.setAttribute('aria-label', dark ? (spanish ? 'Modo claro' : 'Light mode') : (spanish ? 'Modo oscuro' : 'Dark mode'));
+    }
+    themeButton.addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+      try { localStorage.setItem(themeKey, next); } catch { /* The toggle still works if storage is unavailable. */ }
+    });
     try {
       if (localStorage.getItem(languageKey) === 'es') setLanguage('es');
-    } catch { /* English remains the initial language. */ }
+      if (localStorage.getItem(themeKey) === 'dark') setTheme('dark');
+    } catch { /* English and light remain the initial choices. */ }
   </script>
 </body>
 </html>
