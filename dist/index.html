@@ -40,12 +40,15 @@
     html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
     .hero { padding: 90px 0 100px; overflow: hidden; }
     .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 52px; align-items: center; }
-    .experience-badge { position: relative; display: inline-flex; margin: 0 0 8px; padding: 0; border: 0; background: transparent; box-shadow: none; animation: badge-float 4.2s ease-in-out infinite; }
-    .experience-award { position: relative; z-index: 1; width: min(100%, 430px); height: auto; display: block; animation: years-pulse 2.6s ease-out infinite; }
+    .experience-badge { position: relative; display: inline-flex; align-items: center; gap: 14px; margin: 0 0 8px; padding: 8px 18px 8px 8px; border: 1px solid #ead9a4; border-radius: 999px; background: linear-gradient(135deg,#fff,#f7f4ea 55%,#fff8e8); box-shadow: 0 12px 28px rgba(38,57,117,.12), 0 0 0 6px rgba(231,169,40,.16); animation: badge-float 4.2s ease-in-out infinite; }
+    .experience-frame { width: 62px; height: 62px; flex: none; display: grid; place-items: center; border-radius: 50%; padding: 3px; background: conic-gradient(from 0deg,#e7a928,#fff6d2,#263975,#e7a928); animation: spin-frame 7s linear infinite, years-pulse 2.6s ease-out infinite; }
+    .experience-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 30% 50%; border-radius: 50%; background: #fff; animation: spin-frame 7s linear infinite reverse; }
+    .experience-badge span { max-width: 280px; color: #243771; font-size: .95rem; font-weight: 800; line-height: 1.25; }
     .experience-badge span:last-child { position: relative; z-index: 1; max-width: 250px; color: #243771; font-size: .92rem; font-weight: 800; line-height: 1.25; }
     @keyframes badge-shine { 0%,58% { transform: translateX(-130%); } 100% { transform: translateX(130%); } }
     @keyframes years-pulse { 0% { filter: drop-shadow(0 0 0 rgba(231,169,40,.65)); } 70% { filter: drop-shadow(0 0 8px rgba(231,169,40,0)); } 100% { filter: drop-shadow(0 0 0 rgba(231,169,40,0)); } }
     @keyframes badge-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+    @keyframes spin-frame { to { transform: rotate(360deg); } }
     .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: #3659ae; font-size: .86rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
     .eyebrow::before { content: ""; width: 24px; height: 3px; border-radius: 3px; background: #e7a928; }
     h1, h2, h3, p { margin-top: 0; }
@@ -187,7 +190,7 @@
     html[data-theme="dark"] .brand-subtitle, html[data-theme="dark"] .eyebrow, html[data-theme="dark"] h1 em, html[data-theme="dark"] .project-link { color: #9eb6f5; }
     html[data-theme="dark"] .language-switch, html[data-theme="dark"] .theme-toggle, html[data-theme="dark"] .button-secondary, html[data-theme="dark"] .hero-app, html[data-theme="dark"] .project, html[data-theme="dark"] .app, html[data-theme="dark"] .certification, html[data-theme="dark"] .highlight, html[data-theme="dark"] .experience-badge { background: #1b2130; border: 1px solid rgba(255,255,255,.32); color: #e7ebf5; }
     html[data-theme="dark"] .language-switch button { color: #b7c0d4; }
-    html[data-theme="dark"] .experience-badge { background: transparent; border: 0; box-shadow: none; }
+    html[data-theme="dark"] .experience-badge { background: #1b2130; border: 1px solid rgba(231,169,40,.55); box-shadow: 0 12px 28px rgba(0,0,0,.28), 0 0 0 6px rgba(231,169,40,.14); }
     html[data-theme="dark"] .experience-badge span:last-child, html[data-theme="dark"] .hero-app strong, html[data-theme="dark"] .project-client, html[data-theme="dark"] .case-study summary { color: #f3f6fb; }
     html[data-theme="dark"] .hero-copy, html[data-theme="dark"] .section-head p, html[data-theme="dark"] .expertise-copy, html[data-theme="dark"] .project-body p, html[data-theme="dark"] .certification p, html[data-theme="dark"] .app small, html[data-theme="dark"] .hero-app small, html[data-theme="dark"] .project-meta, html[data-theme="dark"] .project-client span { color: #a8b2c8; }
     html[data-theme="dark"] .projects, html[data-theme="dark"] .certifications { background: #161b27; border-color: #2a3142; }
@@ -199,7 +202,7 @@
     html[data-theme="dark"] footer { background: #0c1018; }
     @media (max-width: 850px) { .hero-grid, .expertise-grid { grid-template-columns: 1fr; gap: 30px; } .hero { padding: 70px 0; } .visual { min-height: 350px; } .project-grid { grid-template-columns: repeat(2,1fr); } .highlight-grid { grid-template-columns: repeat(2,1fr); } .certification-grid { grid-template-columns: 1fr; } }
     @media (max-width: 620px) { .brand { max-width: calc(100% - 100px); } .brand-subtitle { font-size: .75rem; } .container { width: min(100% - 32px, 1160px); } .nav { min-height: 68px; } .nav-links { gap: 12px; } .nav-links a:not(.nav-cta) { display: none; } .nav-links .nav-cta { display: none; } .hero { padding: 60px 0 42px; } h1 { font-size: clamp(2.6rem, 11vw, 4rem); } .hero-copy { font-size: 1rem; } .visual { min-height: 310px; margin: 0 -10px; } .workflow { transform: scale(.82); transform-origin: center; } .section-head { display: block; } .section-head p { margin-top: 16px; } .project-grid, .app-grid, .highlight-grid { grid-template-columns: 1fr; } .projects, .expertise, .highlights { padding: 66px 0; } .project-body p { min-height: 0; } .contact-inner { display: block; } .contact-actions { justify-content: flex-start; margin-top: 25px; } .contact .button { margin-top: 0; } footer .container { display: block; } footer .container > span { display: block; margin-top: 8px; } }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .experience-badge, .experience-badge::after, .experience-award, .highlights::before, .highlights::after, .highlights .section-head h2, .highlight-value, .highlight h3, .button-upwork, .button-upwork::after { animation: none; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .experience-badge, .experience-frame, .experience-frame img, .highlights::before, .highlights::after, .highlights .section-head h2, .highlight-value, .highlight h3, .button-upwork, .button-upwork::after { animation: none; } }
   </style>
 </head>
 <body>
@@ -213,7 +216,7 @@
     <section class="hero" id="inicio">
       <div class="container hero-grid">
         <div>
-          <p class="experience-badge"><img class="experience-award" src="assets/years.png" alt="8+ years of Zoho experience"></p>
+          <p class="experience-badge"><span class="experience-frame"><img src="assets/years.png" alt=""></span><span data-i18n="experienceCopy">8+ years working full time on Zoho-related projects</span></p>
           <h1><span data-i18n="heroLead">Less busywork. </span><em data-i18n="heroAccent">Clearer operations.</em></h1>
           <p class="hero-copy" data-i18n="heroCopy">I help teams cut repetitive tasks, connect sales, finance, and operations, and see exactly what needs attention next—so work moves faster, with fewer errors.</p>
           <div class="actions"><a class="button button-primary" data-i18n="viewProjects" href="#proyectos">View projects</a><a class="button button-secondary" data-i18n="exploreTech" href="#tecnologias">Explore expertise</a><a class="button button-secondary button-upwork" data-i18n="upworkProfile" href="#logros">Verified Upwork experience</a></div>
@@ -266,7 +269,7 @@
       es: {
         brandSubtitle: 'Desarrollador certificado en Zoho · Especialista en integraciones',
         navProjects: 'Proyectos', navTech: 'Tecnologías', navContact: 'Hablemos',
-        portfolio: '8+ años trabajando a tiempo completo en proyectos Zoho', experienceCopy: 'años dedicados a tiempo completo a sistemas Zoho', heroLead: 'Menos trabajo repetitivo. ', heroAccent: 'Operaciones más claras.',
+        portfolio: '8+ años trabajando a tiempo completo en proyectos Zoho', experienceCopy: '8+ años trabajando a tiempo completo en proyectos relacionados con Zoho', heroLead: 'Menos trabajo repetitivo. ', heroAccent: 'Operaciones más claras.',
         heroCopy: 'Ayudo a los equipos a reducir tareas repetitivas, conectar ventas, finanzas y operaciones, y ver exactamente qué requiere atención—para que el trabajo avance más rápido y con menos errores.',
         viewProjects: 'Ver proyectos', exploreTech: 'Explorar experiencia', upworkProfile: 'Experiencia verificada en Upwork',
         clients: 'Automatización de ventas', finance: 'Flujos financieros', apps: 'Aplicaciones a medida', data: 'Sistemas conectados',         expCrmTitle: 'Desarrollo en Zoho CRM', expCrm: 'Módulos personalizados, flujos, funciones, reglas de validación y personalización avanzada de CRM.', expAutoTitle: 'Automatización de procesos', expAuto: 'Automatización de procesos de negocio con Deluge, Zoho Flow, webhooks y n8n.', expApiTitle: 'Integraciones y APIs de Zoho', expApi: 'Conexión de Zoho CRM con Books, Creator, Desk, Sign, Writer, plataformas externas y APIs REST.', expCreatorTitle: 'Aplicaciones en Zoho Creator', expCreator: 'Aplicaciones de negocio, dashboards, formularios, flujos e integraciones a medida.', expArchTitle: 'Arquitectura y optimización de CRM', expArch: 'Diseño de estructuras CRM escalables y mejora de implementaciones existentes.', expAiTitle: 'Soluciones CRM con IA', expAi: 'Uso de IA para clasificación, resúmenes, procesamiento de datos, gestión de leads y flujos inteligentes.',
