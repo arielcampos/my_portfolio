@@ -367,6 +367,23 @@
     computerAccreditationDate.textContent = 'Awarded December 1994';
     translations.es.certComputerDate = 'Otorgado en diciembre de 1994';
     document.querySelector('[data-i18n="certComputerScience"]').after(computerAccreditationDate);
+    const educationImages = [
+      { title: 'certComputerTitle', src: 'assets/technical-diploma.jpg', alt: 'Technical Diploma in Computing — Instituto Modelo Emmanuel, December 1994' },
+      { title: 'certReactTitle', src: 'assets/utn-react.jpg', alt: 'Full Stack Development with React certificate — UTN Buenos Aires, May 16, 2025' }
+    ];
+    educationImages.forEach(({ title, src, alt }) => {
+      const link = document.createElement('a');
+      link.href = src;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      const image = document.createElement('img');
+      image.className = 'cert-thumb';
+      image.src = src;
+      image.alt = alt;
+      image.loading = 'lazy';
+      link.append(image);
+      document.querySelector(`[data-i18n="${title}"]`).after(link);
+    });
     const creatorAccreditationDate = document.createElement('p');
     creatorAccreditationDate.dataset.i18n = 'certCreatorDate';
     creatorAccreditationDate.textContent = 'Awarded July 11, 2025 · Zoho';
